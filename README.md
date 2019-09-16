@@ -10,6 +10,10 @@ Notes:
 - To run Mattermost on Kubernetes you can start with the [manifest examples in the kubernetes folder](contrib/kubernetes/README.md)
 - To install Mattermost without Docker directly onto a Linux-based operating systems, please see [Admin Guide](https://docs.mattermost.com/guides/administrator.html#installing-mattermost).
 
+## Deploy to Render
+
+[![Deploy to Render](http://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/iac/new?repoOwner=aduong&repoName=mattermost-docker&branch=render-yaml&provider=GITHUB)
+
 ## Installation using Docker Compose
 
 The following instructions deploy Mattermost in a production configuration using multi-node Docker Compose set up.
