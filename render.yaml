@@ -1,0 +1,50 @@
+databases:
+- name: mattermost
+
+services:
+- type: web
+  name: mattermost-web
+  env: docker
+  dockerfilePath: ./web/Dockerfile
+  dockerContext: ./web
+  envVars:
+  - key: APP_HOST
+    fromService:
+      type: pserv
+      name: mattermost-backend
+      property: host
+  - key: APP_PORT_NUMBER
+    fromService:
+      type: pserv
+      name: mattermost-backend
+      property: port
+
+- type: pserv
+  name: mattermost-backend
+  env: docker
+  dockerfilePath: ./app/Dockerfile
+  dockerContext: ./app
+  disk:
+    name: data
+    mountPath: /mattermost/data
+  envVars:
+  - key: edition
+    value: team
+  - key: MM_USERNAME
+    fromDatabase:
+      name: mattermost
+      property: user
+  - key: MM_PASSWORD
+    fromDatabase:
+      name: mattermost
+      property: password
+  - key: MM_DBNAME
+    fromDatabase:
+      name: mattermost
+      property: database
+  - key: DB_HOST
+    fromDatabase:
+      name: mattermost
+      property: host
+  - key: MM_SERVICESETTINGS_LISTENADDRESS
+    value: ":10000"
