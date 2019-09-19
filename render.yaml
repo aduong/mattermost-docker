@@ -38,6 +38,7 @@ services:
 - type: pserv
   name: mattermost-es
   env: docker
+  plan: starter plus
   dockerfilePath: ./elastic/Dockerfile
   dockerContext: ./elastic
   disk:
