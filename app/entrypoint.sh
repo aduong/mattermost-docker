@@ -65,6 +65,17 @@ if [ "$1" = 'mattermost' ]; then
     echo "Using existing database connection"
   fi
 
+  export MM_FILESETTINGS_AMAZONS3ENDPOINT="${MM_FILESETTINGS_AMAZONS3HOST}:${MM_FILESETTINGS_AMAZONS3PORT}"
+
+  echo 'Configuring minio'
+  mc config host add minio \
+    "http://${MM_FILESETTINGS_AMAZONS3HOST}:${MM_FILESETTINGS_AMAZONS3PORT}" \
+    "${MM_FILESETTINGS_AMAZONS3ACCESSKEYID}" \
+    "${MM_FILESETTINGS_AMAZONS3SECRETACCESSKEY}"
+
+  echo "Creating minio bucket ${MM_FILESETTINGS_AMAZONS3BUCKET}"
+  mc mb -p "minio/${MM_FILESETTINGS_AMAZONS3BUCKET}"
+
   # Wait another second for the database to be properly started.
   # Necessary to avoid "panic: Failed to open sql connection pq: the database system is starting up"
   sleep 1
