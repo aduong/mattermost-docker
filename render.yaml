@@ -35,6 +35,19 @@ services:
   - key: MINIO_SECRET_KEY
     generateValue: true
 
+- type: pserv
+  name: mattermost-es
+  env: docker
+  dockerfilePath: ./elastic/Dockerfile
+  dockerContext: ./elastic
+  disk:
+    name: esdata
+    mountPath: /usr/share/elasticsearch/data
+  envVars:
+  - key: ES_JAVA_OPTS
+    value: "-Xms512m -Xmx512m"
+  - key: discovery.type
+    value: single-node
 
 - type: pserv
   name: mattermost-backend
