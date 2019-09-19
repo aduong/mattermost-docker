@@ -33,7 +33,7 @@ services:
   - key: MINIO_ACCESS_KEY
     value: 9DG1XAAGFDOB39WK217V
   - key: MINIO_SECRET_KEY
-    generate: true
+    generateValue: true
 
 
 - type: pserv
