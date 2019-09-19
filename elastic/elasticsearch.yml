@@ -1,0 +1,5 @@
+node.name: elasticsearch
+network.host: 0.0.0.0
+http:
+  port: 10000-10100
+  publish_port: 10000
