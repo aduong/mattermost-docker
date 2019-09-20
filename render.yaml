@@ -57,8 +57,6 @@ services:
     name: config
     mountPath: /mattermost/config
   envVars:
-  - key: edition
-    value: team
   - key: MM_USERNAME
     fromDatabase:
       name: mattermost
