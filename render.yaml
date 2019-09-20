@@ -28,8 +28,6 @@ services:
     name: data
     mountPath: /data
   envVars:
-  - key: MINIO_REGION
-    value: us-west-1
   - key: MINIO_ACCESS_KEY
     value: 9DG1XAAGFDOB39WK217V
   - key: MINIO_SECRET_KEY
@@ -83,8 +81,6 @@ services:
     value: amazons3
   - key: MM_FILESETTINGS_AMAZONS3BUCKET
     value: mattermost
-  - key: MM_FILESETTINGS_AMAZONS3REGION
-    value: us-west-1
   - key: MM_FILESETTINGS_AMAZONS3ACCESSKEYID
     value: 9DG1XAAGFDOB39WK217V
   - key: MM_FILESETTINGS_AMAZONS3SECRETACCESSKEY
