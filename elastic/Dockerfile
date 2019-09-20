@@ -1,5 +1,5 @@
 # The official Elasticsearch Docker image
-FROM docker.elastic.co/elasticsearch/elasticsearch:7.3.2
+FROM docker.elastic.co/elasticsearch/elasticsearch:5.6.16
 
 RUN elasticsearch-plugin install analysis-icu
 
