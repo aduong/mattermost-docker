@@ -36,6 +36,7 @@ services:
   env: docker
   dockerfilePath: ./app/Dockerfile
   dockerContext: ./app
+  healthCheckPath: /
   envVars:
   - key: MM_USERNAME
     fromDatabase:
