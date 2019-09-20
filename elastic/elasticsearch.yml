@@ -3,3 +3,4 @@ network.host: 0.0.0.0
 http:
   port: 10000-10100
   publish_port: 10000
+xpack.security.enabled: false
