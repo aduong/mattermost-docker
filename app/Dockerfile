@@ -47,7 +47,7 @@ HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 WORKDIR /mattermost
-CMD ["mattermost"]
+CMD ["mattermost", "--config", "/tmp/config.json"]
 
 # Expose port 8000 of the container
 EXPOSE 8000
