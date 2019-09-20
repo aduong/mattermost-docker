@@ -1,6 +1,7 @@
 databases:
 - name: mattermost
 
+services:
 - type: pserv
   name: mattermost-minio
   env: docker
