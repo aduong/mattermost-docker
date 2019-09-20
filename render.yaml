@@ -50,6 +50,8 @@ services:
     fromDatabase:
       name: mattermost
       property: database
+  - key: MM_SQLSETTINGS_DRIVERNAME
+    value: postgres
   - key: DB_HOST
     fromDatabase:
       name: mattermost
