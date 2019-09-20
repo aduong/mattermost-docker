@@ -74,6 +74,8 @@ if [ "$1" = 'mattermost' ]; then
   echo "Creating minio bucket ${MM_FILESETTINGS_AMAZONS3BUCKET}"
   mc mb -p "minio/${MM_FILESETTINGS_AMAZONS3BUCKET}"
 
+  export MM_ELASTICSEARCHSETTINGS_CONNECTIONURL="http://${MM_ELASTICSEARCHSETTINGS_HOST}:${MM_ELASTICSEARCHSETTINGS_PORT}"
+
   # Wait another second for the database to be properly started.
   # Necessary to avoid "panic: Failed to open sql connection pq: the database system is starting up"
   sleep 1

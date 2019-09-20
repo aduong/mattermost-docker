@@ -95,3 +95,21 @@ services:
       property: port
   - key: MM_FILESETTINGS_AMAZONS3SSL
     value: "false"
+  - key: MM_ELASTICSEARCHSETTINGS_ENABLEINDEXING
+    value: "true"
+  - key: MM_ELASTICSEARCHSETTINGS_ENABLESEARCHING
+    value: "true"
+  - key: MM_ELASTICSEARCHSETTINGS_USERNAME
+    value: ""
+  - key: MM_ELASTICSEARCHSETTINGS_PASSWORD
+    value: ""
+  - key: MM_ELASTICSEARCHSETTINGS_HOST
+    fromService:
+      type: pserv
+      name: mattermost-es
+      property: host
+  - key: MM_ELASTICSEARCHSETTINGS_PORT
+    fromService:
+      type: pserv
+      name: mattermost-es
+      property: port
