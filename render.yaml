@@ -93,3 +93,7 @@ services:
       type: pserv
       name: mattermost-es
       property: port
+  - key: MM_CLUSTERSETTINGS_ENABLE
+    value: "true"
+  - key: MM_CLUSTERSETTINGS_CLUSTERNAME
+    value: render
