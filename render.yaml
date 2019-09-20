@@ -1,24 +1,6 @@
 databases:
 - name: mattermost
 
-services:
-- type: web
-  name: mattermost-web
-  env: docker
-  dockerfilePath: ./web/Dockerfile
-  dockerContext: ./web
-  envVars:
-  - key: APP_HOST
-    fromService:
-      type: pserv
-      name: mattermost-backend
-      property: host
-  - key: APP_PORT_NUMBER
-    fromService:
-      type: pserv
-      name: mattermost-backend
-      property: port
-
 - type: pserv
   name: mattermost-minio
   env: docker
@@ -48,14 +30,11 @@ services:
   - key: discovery.type
     value: single-node
 
-- type: pserv
-  name: mattermost-backend
+- type: web
+  name: mattermost
   env: docker
   dockerfilePath: ./app/Dockerfile
   dockerContext: ./app
-  disk:
-    name: config
-    mountPath: /mattermost/config
   envVars:
   - key: MM_USERNAME
     fromDatabase:
