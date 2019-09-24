@@ -1,5 +1,6 @@
 databases:
 - name: mattermost
+  plan: standard
 
 services:
 - type: pserv
@@ -34,6 +35,7 @@ services:
 - type: web
   name: mattermost
   env: docker
+  plan: starter plus
   dockerfilePath: ./app/Dockerfile
   dockerContext: ./app
   envVars:
