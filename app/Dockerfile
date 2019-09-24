@@ -40,17 +40,8 @@ RUN mkdir -p /mattermost/data /mattermost/plugins /mattermost/client/plugins \
 
 USER mattermost
 
-#Healthcheck to make sure container is ready
-HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1
-
 # Configure entrypoint and command
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 WORKDIR /mattermost
 CMD ["mattermost", "--config", "/tmp/config.json"]
-
-# Expose port 8000 of the container
-EXPOSE 8000
-
-# Declare volumes for mount point directories
-VOLUME ["/mattermost/data", "/mattermost/logs", "/mattermost/config", "/mattermost/plugins", "/mattermost/client/plugins"]
