@@ -38,6 +38,7 @@ services:
   plan: starter plus
   dockerfilePath: ./app/Dockerfile
   dockerContext: ./app
+  numInstances: 2
   envVars:
   - key: MM_USERNAME
     fromDatabase:
