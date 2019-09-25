@@ -96,3 +96,5 @@ services:
     value: render
   - key: MM_TEAMSETTINGS_ENABLEOPENSERVER
     value: "true"
+  - key: MM_SERVICESETTINGS_SITEURL
+    value: "https://rendermost.com"
