@@ -33,7 +33,7 @@ services:
     value: single-node
 
 - type: web
-  name: mattermost
+  name: rendermost
   env: docker
   plan: starter plus
   dockerfilePath: ./app/Dockerfile
