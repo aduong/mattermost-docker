@@ -39,6 +39,8 @@ services:
   dockerfilePath: ./app/Dockerfile
   dockerContext: ./app
   numInstances: 2
+  domains:
+  - rendermost.com
   envVars:
   - key: MM_USERNAME
     fromDatabase:
