@@ -68,16 +68,11 @@ services:
     value: 9DG1XAAGFDOB39WK217V
   - key: MM_FILESETTINGS_AMAZONS3SECRETACCESSKEY
     sync: false
-  - key: MM_FILESETTINGS_AMAZONS3HOST
+  - key: MM_FILESETTINGS_AMAZONS3ENDPOINT
     fromService:
       type: pserv
       name: mattermost-minio
-      property: host
-  - key: MM_FILESETTINGS_AMAZONS3PORT
-    fromService:
-      type: pserv
-      name: mattermost-minio
-      property: port
+      property: hostport
   - key: MM_FILESETTINGS_AMAZONS3SSL
     value: "false"
   - key: MM_ELASTICSEARCHSETTINGS_ENABLEINDEXING
@@ -88,16 +83,11 @@ services:
     value: ""
   - key: MM_ELASTICSEARCHSETTINGS_PASSWORD
     value: ""
-  - key: MM_ELASTICSEARCHSETTINGS_HOST
+  - key: MM_ELASTICSEARCHSETTINGS_HOSTPORT
     fromService:
       type: pserv
       name: mattermost-es
-      property: host
-  - key: MM_ELASTICSEARCHSETTINGS_PORT
-    fromService:
-      type: pserv
-      name: mattermost-es
-      property: port
+      property: hostport
   - key: MM_CLUSTERSETTINGS_ENABLE
     value: "true"
   - key: MM_CLUSTERSETTINGS_CLUSTERNAME

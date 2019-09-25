@@ -64,11 +64,9 @@ if [ "$1" = 'mattermost' ]; then
   fi
 
   if [[ "$MM_FILESETTINGS_DRIVERNAME" == amazons3 ]]; then
-    export MM_FILESETTINGS_AMAZONS3ENDPOINT="${MM_FILESETTINGS_AMAZONS3HOST}:${MM_FILESETTINGS_AMAZONS3PORT}"
-
     echo 'Configuring minio'
     mc config host add minio \
-      "http://${MM_FILESETTINGS_AMAZONS3HOST}:${MM_FILESETTINGS_AMAZONS3PORT}" \
+      "http://${MM_FILESETTINGS_AMAZONS3ENDPOINT}" \
       "${MM_FILESETTINGS_AMAZONS3ACCESSKEYID}" \
       "${MM_FILESETTINGS_AMAZONS3SECRETACCESSKEY}"
 
@@ -76,7 +74,7 @@ if [ "$1" = 'mattermost' ]; then
     mc mb -p "minio/${MM_FILESETTINGS_AMAZONS3BUCKET}"
   fi
 
-  export MM_ELASTICSEARCHSETTINGS_CONNECTIONURL="http://${MM_ELASTICSEARCHSETTINGS_HOST}:${MM_ELASTICSEARCHSETTINGS_PORT}"
+  export MM_ELASTICSEARCHSETTINGS_CONNECTIONURL="http://${MM_ELASTICSEARCHSETTINGS_HOSTPORT}"
 
   # Wait another second for the database to be properly started.
   # Necessary to avoid "panic: Failed to open sql connection pq: the database system is starting up"
