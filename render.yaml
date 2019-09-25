@@ -92,3 +92,5 @@ services:
     value: "true"
   - key: MM_CLUSTERSETTINGS_CLUSTERNAME
     value: render
+  - key: MM_TEAMSETTINGS_ENABLEOPENSERVER
+    value: "true"
